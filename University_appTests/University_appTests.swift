@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import University_app
 
 class University_appTests: XCTestCase {
     
