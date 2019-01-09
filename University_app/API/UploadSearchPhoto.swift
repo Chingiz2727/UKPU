@@ -15,17 +15,18 @@ extension API {
     class func UploadSearchPhoto(photo: UIImage?,phone:String,lost_thing_name:String,description:String,place:String,completion: @escaping(_ error:Bool, _ success:Bool)-> Void)
     {
         UIImageJPEGRepresentation(photo ??  UIImage(named: "Robert")!, 1)
-        var id = UserId.id!.dropFirst()
         let param = [
             "path" : "lost_and_found"
             ] as [String : String]
+        let id = UserId.id
+
         let param1 = [
             "phone":phone,
             "path" : "lost_and_found",
             "lost_thing_name":lost_thing_name,
             "description":description,
             "place":place,
-            "created_by" : String(id)
+            "created_by" : String(id!)
             ] as [String : String]
         print(UserId.id!.dropFirst())
         print(param)
@@ -68,4 +69,60 @@ extension API {
             
 }
 
-    }}
+    }
+    class func UploadSearchAndFound(photo: UIImage,phone:String,lost_thing_name:String,description:String,place:String,completion: @escaping(_ error:Bool, _ success:Bool)-> Void)
+    {
+        UIImageJPEGRepresentation(photo, 1)
+        let id = UserId.id
+        let param = [
+            "phone":phone,
+            "path" : "lost_and_found",
+            "lost_thing_name":lost_thing_name,
+            "description":description,
+            "place":place,
+            "created_by" : String(id!)
+            ] as [String : String]
+        print(id)
+        let myUrl = URL(string: "https://ukpu-systems.kz/terminal/lostandfound.php")
+        let request = NSMutableURLRequest(url: myUrl!);
+        request.httpMethod = "POST"
+        
+        let boundary = generateBoundaryString()
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let imageData = UIImageJPEGRepresentation(photo, 1)
+        if(imageData==nil)  { return; }
+        request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "upload", imageDataKey: imageData! as NSData, boundary: boundary) as Data
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }else{
+                print(response)
+            }
+            // You can print out response object
+            print("******* response = \(response)")
+            
+            // Print out reponse body
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("****** response data = \(responseString!)")
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                print(json)
+                completion(true,false)
+                
+            }catch
+            {
+                completion(false,true)
+                print(error)
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+}

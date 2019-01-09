@@ -19,17 +19,20 @@ class API: NSObject {
             "query":"select id,user_type_id from users where login='\(email)'",
             "passwd":password
         ]
-        
+        print(paramstring)
+        print(mainUrl)
         Alamofire.request(mainUrl!, method:.post , parameters: paramstring , encoding: JSONEncoding.default, headers: nil).responseJSON {
             
             response in
             if let data = response.data , let _ = String(data: data, encoding:.utf8)
             {
                 let jes = JSON(data)
+                print(jes)
                 guard let dataarr = jes["result"].arrayObject as? [String] else {return}
             switch response.result
             {
-            case.failure(let error): break
+            case.failure(let error):
+                print(error)
                 
                 case.success(let value):
                 let json=JSON(value)

@@ -14,7 +14,7 @@ class GetNewsList {
     class func getNews (completion:@escaping([NewsList])->Void) {
         let name = APItoken.getapictoken()
         let password = APItoken.getPassword()
-        let query = "select topic,news_body,created from news where deleted = false"
+        let query = "select topic, news_body, created from news_semester"
         let params = [
             "login" : name,
             "query" : query ,

@@ -23,17 +23,19 @@ class SerachFViewController: UIViewController,UIImagePickerControllerDelegate,UI
         self.SearchF.imagepicking = sec
         self.view.addSubview(scrollView)
         scrollView.addSubview(mainView)
+        scrollView.setAnchor(top: mainView.topAnchor, left: mainView.leftAnchor, bottom: mainView.loadedImage.bottomAnchor, right: mainView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         setscroll()
         super.viewDidLoad()
     }
     lazy var scrollView : UIScrollView = {
         let  view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentSize.height = 740
+//        view.contentSize.height = 740
         return view
     }()
     func send(){
-        API.UploadSearchPhoto(photo: picker_image, phone: SearchF.contact.text!, lost_thing_name: SearchF.title.text!, description: SearchF.text.text!, place: SearchF.from.text!) { (error:Bool,success:Bool) in
+     
+        API.UploadSearchAndFound(photo: picker_image!, phone: SearchF.contact.text!, lost_thing_name: SearchF.title.text!, description: SearchF.text.text!, place: SearchF.from.text!) { (error:Bool,success:Bool) in
             if success {
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)

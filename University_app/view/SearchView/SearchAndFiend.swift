@@ -48,14 +48,7 @@ class SearchAndFiend : UIView
 
     let Descript:UILabel = {
         let joinlabel=UILabel()
-        joinlabel.frame = CGRect(x:0, y: 0, width: 200, height: 20)
-        joinlabel.lineBreakMode = .byWordWrapping
-        
         joinlabel.text = "Дополнительные описания:"
-        joinlabel.textAlignment = .center
-        joinlabel.font=UIFont(name: "Times New Roman", size: 22)
-        joinlabel.textColor=UIColor.black
-        
         return joinlabel
     }()
     
@@ -158,7 +151,7 @@ class SearchAndFiend : UIView
         title.setAnchor(top: username.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
         from.setAnchor(top: title.bottomAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
         contact.setAnchor(top: from.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
-        Descript.setAnchor(top: contact.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 0)
+        Descript.setAnchor(top: contact.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 0,width: 0,height: 30)
         text.setAnchor(top: Descript.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
         send.setAnchor(top: text.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 125, height: 45)
         preview.setAnchor(top: text.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 125, height: 45)

@@ -60,17 +60,13 @@ func createBodyWithParameters(parameters: [String: String]?, filePathKey: String
 extension API {
     class func createPhoto(photo: UIImage,completion: @escaping(_ error:Error?, _ success:Bool)-> Void)
     {
-    
     UIImageJPEGRepresentation(photo, 1)
-        var id = UserId.id?.dropFirst()
+    let id = UserId.id
     let param = [
         "user_id" : String(id!),
-        "path" : "user_photo"
         ] as [String : String]
-        print(UserId.id!.dropFirst())
-    let myUrl = URL(string: "https://89.40.60.206:8080/jasperreport/GeneratePhoto")
-    
-    
+        print(id)
+    let myUrl = URL(string: "https://ukpu-systems.kz/terminal/upload.php")
     let request = NSMutableURLRequest(url: myUrl!);
     request.httpMethod = "POST"
     
@@ -98,9 +94,7 @@ extension API {
     
     do {
     let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-    
-    
-    
+    print(json)
     
     }catch
     {
@@ -117,7 +111,7 @@ extension API {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-  }
+  } 
 extension NSMutableData {
     
     func appendString(string: String) {
@@ -125,3 +119,6 @@ extension NSMutableData {
         append(data!)
     }
 }
+
+
+

@@ -6,15 +6,20 @@ import DropDown
 class ScheduleController: UITableViewController{
     var schedule = [ScheduleData]()
     let dropdown = DropDown()
+    var segment = UISegmentedControl()
+    var Exams = [Result]()
+
+    let items = ["Расписание","Экзамены"]
     let titles = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"]
     let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
       override func viewDidLoad() {
         super.viewDidLoad()
         day()
-        navigationItem.title = "Расписание"
+        segment = UISegmentedControl(items: items)
+        
+        navigationItem.titleView = segment
         navigationController?.navigationBar.isTranslucent = false
-        view.addSubview(send)
-        send.setAnchor(top: tableView.layoutMarginsGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.frame.width, height: 45)
+        
         dropdown.anchorView = send
         dropdown.dataSource = titles
         dropdown.selectRow(1)
@@ -22,8 +27,50 @@ class ScheduleController: UITableViewController{
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         DropDown.startListeningToKeyboard()
+        segment.selectedSegmentIndex = 0
+        segment.addTarget(self, action: #selector(changed(segment:)), for: .valueChanged)
         indexes()
     }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            view.addSubview(send)
+        return send
+        case 1:
+            return UIView()
+        default:
+            break
+        }
+        return UIView()
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    @objc func changed(segment:UISegmentedControl) {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            apishka()
+        default:
+            getSession()
+            
+        }
+    }
+    func getSession() {
+        GetExams.get { (exams) in
+            if let exams = exams {
+                self.Exams = exams.result!
+                self.dropdown.isHidden = true
+                self.tableView.reloadData()
+
+                self.dropdown.isUserInteractionEnabled = false
+            }
+
+        }
+        self.tableView.reloadData()
+
+    }
+    
     func addview() {
         let bgImage = UIImageView();
         bgImage.image = UIImage(named: "noless");
@@ -33,7 +80,6 @@ class ScheduleController: UITableViewController{
     override func viewWillAppear(_ animated: Bool) {
         tableView?.backgroundColor = UIColor.init(r: 248, g: 248, b: 248)
         tableView.register(ScheduleCollectionViewCell.self, forCellReuseIdentifier: "cellid")
-        tableView?.contentInset = UIEdgeInsets(top: 45, left: 0, bottom: 0, right: 0)
         
     }
     func day() {
@@ -60,12 +106,13 @@ class ScheduleController: UITableViewController{
             }
         }
     }
-    func background() {
-     
-    }
+
     func apishka() {
         GetLessons.Lesson(day: (self.send.titleLabel?.text!)!, completion: { (schedules:[ScheduleData]!) in
             if let schedule = schedules {
+                self.dropdown.isUserInteractionEnabled = true
+                self.dropdown.isHidden = false
+
                 self.schedule = schedule
                 self.tableView?.reloadData()
             }
@@ -95,16 +142,33 @@ class ScheduleController: UITableViewController{
         else {
             self.tableView?.backgroundView = nil
         }
-        return schedule.count
+        switch segment.selectedSegmentIndex {
+        case 0:
+            return schedule.count
+        default:
+            return Exams.count
+        }
+        return 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath) as! ScheduleCollectionViewCell
-        let array = schedule[indexPath.row]
-        cell.LessonName.text = "Урок: \(array.name!)"
-        cell.TeacherName.text = "Преподователь: \(array.Teacher!)"
-        cell.Cabinet.text = "Кабинет: \(array.room!)"
-        cell.StartTime.text = "Начало: \(array.Start!)"
-        cell.Endtime.text = "Конец: \(array.End!)"
+        switch segment.selectedSegmentIndex {
+        case 0:
+            let array = schedule[indexPath.row]
+            cell.LessonName.text = "Урок: \(array.name!)"
+            cell.TeacherName.text = "Преподователь: \(array.Teacher!)"
+            cell.Cabinet.text = "Кабинет: \(array.room!)"
+            cell.StartTime.text = "Начало: \(array.Start!)"
+            cell.Endtime.text = "Конец: \(array.End!)"
+        default:
+            let item = Exams[indexPath.row]
+            cell.LessonName.text = item.nameRu!
+            cell.Cabinet.text = item.room!
+            cell.StartTime.text = item.startTime!
+            cell.Endtime.text = item.endTime!
+            cell.TeacherName.text = "\(item.firstName!) \(item.lastName!)"
+        }
+
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor(red: 69/255.0, green: 92/255.0, blue: 128/255.0, alpha: 1.0)
         return cell

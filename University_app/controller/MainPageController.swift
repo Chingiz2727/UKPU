@@ -7,13 +7,15 @@ import SwiftyJSON
 var baseurl = "http://78.40.108.39/profile/account/"
 
 @available(iOS 10.0, *)
-class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
+class MainPageController: UITableViewController {
     var menul = [MenuList(title: "Наш Университет", image: "bank"),
                  MenuList(title: "Поиск Друзей", image: "users-1"),
                  MenuList(title: "Бюро Находок", image: "find"),
+                 MenuList(title: "Информация о платежах", image: "find"),
                  MenuList(title: "Часто задаваемы вопросы", image: "info"),
                  MenuList(title: "Выйти", image: "logout")]
     let bandCellId = "bandCellId"
+    let headercell = "header"
     let bandsArray = [(image: "userprofile", title: "nl")]
     var button: UIButton = UIButton()
     var MainView : MainPage!
@@ -23,18 +25,12 @@ class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //select first_name,last_name,email from users where login='180190'
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableVIew.tableFooterView = UIView()
         data2()
-        setupview()
-        tableVIew.isScrollEnabled = false
-        setupTableView()
-        view.addSubview(button)
-       
-        button.setAnchor(top: nil, left: nil, bottom: MainView.bannerImageView.bottomAnchor, right: MainView.bannerImageView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 10, paddingRight: 10,width: 30,height: 30)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(sec), for: .touchUpInside)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.setImage(UIImage(named: "photo"), for: .normal)
+        GetSession.get()
+        tableView.bounces = false
+        tableView.register(MainMenuView.self, forCellReuseIdentifier: bandCellId)
+        tableView.register(MainPage.self, forCellReuseIdentifier: headercell)
+        
     }
    @objc func sec() {
         let picker = UIImagePickerController()
@@ -53,24 +49,25 @@ class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSo
         {
             UserApi.users()
                 { (userinfo) in
-        self.MainView.nameLabel.text = userinfo.name
+//        self.MainView.nameLabel.text = userinfo.name
         }
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menul.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: bandCellId, for: indexPath) as! MainMenuView
         cell.cabinet.text = menul[indexPath.row].title
         cell.placeimg.image = UIImage(named: menul[indexPath.row].image!)
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
@@ -80,8 +77,10 @@ class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSo
         case 2:
             navigationController?.pushViewController(SearchFindTableViewController(), animated: true)
         case 3:
-            navigationController?.pushViewController(QuestionTableView(), animated: true)
+            navigationController?.pushViewController(PaymentViewController(), animated: true)
         case 4:
+            navigationController?.pushViewController(QuestionTableView(), animated: true)
+        case 5:
             let stand  = UserDefaults.standard
             stand.removeObject(forKey: "passwrd")
             stand.removeObject(forKey: "user-tken")
@@ -91,18 +90,15 @@ class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    let tableVIew: UITableView = {
-        let tableView = UITableView()
-        return tableView
-    }()
+
     var picker_image : UIImage? {
         didSet {
-            MainView.avatarImageView.image = picker_image
-            MainView.bannerImageView.image = picker_image
-            self.tableVIew.reloadData()
+//            MainView.avatarImageView.image = picker_image
+//            MainView.bannerImageView.image = picker_image
+            self.tableView.reloadData()
             API.createPhoto(photo: picker_image!) { (error:Error?, success:Bool) in
                 if success {
                     
@@ -111,21 +107,16 @@ class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return MainView.bannerImageView.height
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
     }
-  
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let head = tableView.dequeueReusableCell(withIdentifier: headercell) as! MainPage
+        head.photobutton.addTarget(self, action: #selector(sec), for: .touchUpInside)
+        return head
+    }
     
-    func setupTableView()
-    {
-        tableVIew.delegate = self
-        tableVIew.dataSource = self
-        tableVIew.register(MainMenuView.self, forCellReuseIdentifier: bandCellId)
-        view.addSubview(tableVIew)
-        tableVIew.setAnchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        tableVIew.tableHeaderView = MainView.bannerImageView
-
-    }
+  
 
 
 }

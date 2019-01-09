@@ -18,8 +18,7 @@ class SendPushId {
             "push_id":push_id,
             "login":"system",
             "passwd": "fda0f1f49f35c4bf82153072e1414ce65ce30b32cf4e7b0c98edbdb597338d15" ]
-        print(login)
-        print(push_id)
+    
         Alamofire.request("http://89.40.60.206:8080/univercity-rs-server/service/push", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200..<600).responseJSON { (response) in
             if response.data != nil {
                 print(response.description)

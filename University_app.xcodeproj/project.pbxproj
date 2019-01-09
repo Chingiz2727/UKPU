@@ -48,6 +48,7 @@
 		7258A82D211303E200D7E2B3 /* ScoreDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258A82C211303E200D7E2B3 /* ScoreDetailController.swift */; };
 		7261580E20D283AA00B836EA /* AboutUniversityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261580D20D283AA00B836EA /* AboutUniversityView.swift */; };
 		7261581020D283E200B836EA /* AboutUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261580F20D283E200B836EA /* AboutUniversityViewController.swift */; };
+		7264146321DE170F00D6ECD7 /* GetSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7264146221DE170F00D6ECD7 /* GetSession.swift */; };
 		726A363020A9A1D4003624D8 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB6C0620A46498003096BE /* NewsController.swift */; };
 		726A363220A9A1D4003624D8 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E2ACF209DC91E001AB9F1 /* MainPageController.swift */; };
 		726A363420A9A1D4003624D8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CB5FD720A5A118001052CB /* Extension.swift */; };
@@ -66,6 +67,12 @@
 		727E2ACA209DB4F8001AB9F1 /* LoginVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E2AC9209DB4F8001AB9F1 /* LoginVIew.swift */; };
 		727E2ACE209DC337001AB9F1 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E2ACD209DC337001AB9F1 /* MainPage.swift */; };
 		727E2AD0209DC91E001AB9F1 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E2ACF209DC91E001AB9F1 /* MainPageController.swift */; };
+		727F7C9C21E4A5E80034FE2A /* Exams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727F7C9B21E4A5E80034FE2A /* Exams.swift */; };
+		727F7C9E21E4A5FC0034FE2A /* GetExams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727F7C9D21E4A5FC0034FE2A /* GetExams.swift */; };
+		727F7CA221E4A7770034FE2A /* ExamsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727F7CA121E4A7770034FE2A /* ExamsTableViewController.swift */; };
+		727F7CA521E4BBB70034FE2A /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727F7CA421E4BBB70034FE2A /* PaymentViewController.swift */; };
+		727F7CA721E4C0900034FE2A /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727F7CA621E4C0900034FE2A /* PaymentView.swift */; };
+		727F7CA921E4C6900034FE2A /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727F7CA821E4C6900034FE2A /* PaymentCollectionViewCell.swift */; };
 		72836D80217B00AB006B0A6D /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72836D7F217B00AB006B0A6D /* login.swift */; };
 		72880966217DADA800FD073C /* TeacherSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72880965217DADA800FD073C /* TeacherSchedule.swift */; };
 		72926D39213E46A600138BED /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72926D23213E46A600138BED /* IQTextView.swift */; };
@@ -195,6 +202,7 @@
 		7258A82C211303E200D7E2B3 /* ScoreDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDetailController.swift; sourceTree = "<group>"; };
 		7261580D20D283AA00B836EA /* AboutUniversityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUniversityView.swift; sourceTree = "<group>"; };
 		7261580F20D283E200B836EA /* AboutUniversityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUniversityViewController.swift; sourceTree = "<group>"; };
+		7264146221DE170F00D6ECD7 /* GetSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSession.swift; sourceTree = "<group>"; };
 		726A364820A9A1D4003624D8 /* University_Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = University_Data.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726A364920A9A1D4003624D8 /* University_app copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "University_app copy-Info.plist"; path = "/Users/chingiz/Documents/Adobe/Xcode/University_app/University_app copy-Info.plist"; sourceTree = "<absolute>"; };
 		7277CED22104CD0C0001F3ED /* ScheduleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleExtension.swift; sourceTree = "<group>"; };
@@ -204,6 +212,12 @@
 		727E2AC9209DB4F8001AB9F1 /* LoginVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIew.swift; sourceTree = "<group>"; };
 		727E2ACD209DC337001AB9F1 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		727E2ACF209DC91E001AB9F1 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
+		727F7C9B21E4A5E80034FE2A /* Exams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exams.swift; sourceTree = "<group>"; };
+		727F7C9D21E4A5FC0034FE2A /* GetExams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExams.swift; sourceTree = "<group>"; };
+		727F7CA121E4A7770034FE2A /* ExamsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamsTableViewController.swift; sourceTree = "<group>"; };
+		727F7CA421E4BBB70034FE2A /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		727F7CA621E4C0900034FE2A /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		727F7CA821E4C6900034FE2A /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
 		72836D7F217B00AB006B0A6D /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		72880965217DADA800FD073C /* TeacherSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSchedule.swift; sourceTree = "<group>"; };
 		72926D23213E46A600138BED /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
@@ -334,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				72F79F9020B2B4B600B64E92 /* API.swift */,
+				7264146121DE16F400D6ECD7 /* GetSession */,
 				72836D7F217B00AB006B0A6D /* login.swift */,
 				72269E8A213F967A006C247C /* SendPushId.swift */,
 				72F79F9320B2BD0200B64E92 /* APItoken.swift */,
@@ -483,6 +498,14 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
+		7264146121DE16F400D6ECD7 /* GetSession */ = {
+			isa = PBXGroup;
+			children = (
+				7264146221DE170F00D6ECD7 /* GetSession.swift */,
+			);
+			path = GetSession;
+			sourceTree = "<group>";
+		};
 		727E2ACB209DC1F3001AB9F1 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,10 +533,12 @@
 		727E2ACC209DC1FD001AB9F1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				727F7C9A21E4A5DA0034FE2A /* ExamsControlle */,
 				723296EB20CAA68B00F7C36E /* Search and Find */,
 				723296EA20CAA67300F7C36E /* Question */,
 				723296E920CAA61C00F7C36E /* SearchPeople */,
 				722787C2209DA8B100908497 /* LoginController.swift */,
+				727F7CA321E4BB490034FE2A /* Payment */,
 				72CB5FD720A5A118001052CB /* Extension.swift */,
 				72C9566920A569C0004EF386 /* TabBarController.swift */,
 				729B89E82147B475006FAB25 /* TeacherTabBar.swift */,
@@ -526,6 +551,26 @@
 				72B6091E2101FA6C00DA2CEE /* University_app-Bridging-Header.h */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		727F7C9A21E4A5DA0034FE2A /* ExamsControlle */ = {
+			isa = PBXGroup;
+			children = (
+				727F7C9B21E4A5E80034FE2A /* Exams.swift */,
+				727F7C9D21E4A5FC0034FE2A /* GetExams.swift */,
+				727F7CA121E4A7770034FE2A /* ExamsTableViewController.swift */,
+			);
+			path = ExamsControlle;
+			sourceTree = "<group>";
+		};
+		727F7CA321E4BB490034FE2A /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				727F7CA421E4BBB70034FE2A /* PaymentViewController.swift */,
+				727F7CA821E4C6900034FE2A /* PaymentCollectionViewCell.swift */,
+				727F7CA621E4C0900034FE2A /* PaymentView.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		72926D21213E46A600138BED /* IQKeyboardManagerSwift */ = {
@@ -925,9 +970,13 @@
 				72251CC920EDEAF300E126C7 /* SearchPeopleTableViewController.swift in Sources */,
 				72926D39213E46A600138BED /* IQTextView.swift in Sources */,
 				7277CED32104CD0C0001F3ED /* ScheduleExtension.swift in Sources */,
+				727F7CA921E4C6900034FE2A /* PaymentCollectionViewCell.swift in Sources */,
 				72F9D70D20C8DE410015722D /* QuestionTableView.swift in Sources */,
 				722F0CD02100A77500D887EB /* MainMenuView.swift in Sources */,
 				72CF982D20F33B73005697F6 /* Array.swift in Sources */,
+				727F7C9E21E4A5FC0034FE2A /* GetExams.swift in Sources */,
+				727F7CA521E4BBB70034FE2A /* PaymentViewController.swift in Sources */,
+				727F7C9C21E4A5E80034FE2A /* Exams.swift in Sources */,
 				7253E3A620C7EEA900707113 /* TeacherView.swift in Sources */,
 				72926D47213E46A600138BED /* IQUITextFieldView+Additions.swift in Sources */,
 				72926D3B213E46A600138BED /* IQTitleBarButtonItem.swift in Sources */,
@@ -941,6 +990,7 @@
 				7214B2072106EA540061E497 /* Searched.swift in Sources */,
 				727E2ACA209DB4F8001AB9F1 /* LoginVIew.swift in Sources */,
 				729B89EB2147B5FC006FAB25 /* UserAPI.swift in Sources */,
+				7264146321DE170F00D6ECD7 /* GetSession.swift in Sources */,
 				72926D3A213E46A600138BED /* IQPreviousNextView.swift in Sources */,
 				723E91B02114F4F9000A4419 /* SendSearch.swift in Sources */,
 				72F9D71320C8F7000015722D /* ExamsView.swift in Sources */,
@@ -955,6 +1005,7 @@
 				729E4E9E212143A60062190B /* UploadPhoto.swift in Sources */,
 				722045DD20BE62AD000583AE /* Expandable.swift in Sources */,
 				72926D40213E46A600138BED /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				727F7CA721E4C0900034FE2A /* PaymentView.swift in Sources */,
 				72836D80217B00AB006B0A6D /* login.swift in Sources */,
 				7200C7B220D219E200AA77D9 /* DataExtension.swift in Sources */,
 				72926D3D213E46A600138BED /* IQToolbar.swift in Sources */,
@@ -977,6 +1028,7 @@
 				72EE408C20DCC84F00FEFF38 /* UserSearcher.swift in Sources */,
 				727E2ACE209DC337001AB9F1 /* MainPage.swift in Sources */,
 				72926D48213E46A600138BED /* IQUIView+Hierarchy.swift in Sources */,
+				727F7CA221E4A7770034FE2A /* ExamsTableViewController.swift in Sources */,
 				72FFD74020C4F72C006079C1 /* SearchTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1175,7 +1227,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D26TWZU8R5;
 				INFOPLIST_FILE = University_app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1202,7 +1254,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D26TWZU8R5;
 				INFOPLIST_FILE = University_app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1399,7 +1451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D26TWZU8R5;
 				INFOPLIST_FILE = University_app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

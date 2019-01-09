@@ -13,8 +13,8 @@ class TabBarController: UITabBarController {
     
    
     let scroller : UIScrollView = UIScrollView()
-   
-    
+    var segment = UISegmentedControl()
+    let items = ["Расписание","Экзамены"]
     override func viewDidLoad() {
         super.viewDidLoad()
         scroller.contentSize = CGSize(width: 499, height: 2300)
@@ -28,13 +28,13 @@ class TabBarController: UITabBarController {
         let score = UINavigationController.init(rootViewController: ScoreController())
         let news = UINavigationController.init(rootViewController: NewsController())
       
-        
         mainpage.tabBarItem = UITabBarItem(title: "Главная", image: #imageLiteral(resourceName: "home"), tag: 0)
         Schedule.tabBarItem = UITabBarItem(title: "Расписание", image: #imageLiteral(resourceName: "Schedule"), tag: 1)
         score.tabBarItem = UITabBarItem(title: "Оценки", image: #imageLiteral(resourceName: "Score"), tag: 2)
         news.tabBarItem = UITabBarItem(title: "Новости", image: #imageLiteral(resourceName: "News"), tag: 3)
         viewControllers = [mainpage,Schedule,score,news]
         self.selectedIndex = 0
+        
         navigationItem.title = "Главная"
         self.selectedViewController = mainpage
         self.tabBar.tintColor = .black
@@ -49,7 +49,7 @@ class TabBarController: UITabBarController {
             tabBar.backgroundColor = UIColor.black
             break
         case 1:
-            navigationItem.title = "Расписание"
+            
             tabBar.tintColor = .black
             break
         case 2:
@@ -61,6 +61,7 @@ class TabBarController: UITabBarController {
             navigationItem.title = "Новости"
         case 4:
             tabBar.tintColor = .black
+            
             navigationItem.title = "Сообщения"
         default:
             break
