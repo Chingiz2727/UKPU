@@ -14,7 +14,6 @@ class TabBarController: UITabBarController {
    
     let scroller : UIScrollView = UIScrollView()
     var segment = UISegmentedControl()
-    let items = ["Расписание","Экзамены"]
     override func viewDidLoad() {
         super.viewDidLoad()
         scroller.contentSize = CGSize(width: 499, height: 2300)

@@ -24,6 +24,8 @@ class SearchPeopleTableViewController: UITableViewController,UISearchBarDelegate
         searchBar.delegate = self
         tableView.register(SearchPeopleCell.self, forCellReuseIdentifier: cellid)
         view.addSubview(searchBar)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationItem.titleView = searchBar
         self.navigationItem.titleView = searchBar
     }
     func searcher() {

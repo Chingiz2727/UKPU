@@ -100,6 +100,9 @@
 		729DA70D20CE2B3800B98750 /* SearchAndFiend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DA70C20CE2B3800B98750 /* SearchAndFiend.swift */; };
 		729DA70F20CE34F300B98750 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729DA70E20CE34F300B98750 /* NewsView.swift */; };
 		729E4E9E212143A60062190B /* UploadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E4E9D212143A60062190B /* UploadPhoto.swift */; };
+		72A1DA0021E7187700C6D4F1 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A1D9FF21E7187700C6D4F1 /* Payment.swift */; };
+		72A1DA0221E7189E00C6D4F1 /* GetPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A1DA0121E7189E00C6D4F1 /* GetPayment.swift */; };
+		72A1DA0421E71E0400C6D4F1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A1DA0321E71E0400C6D4F1 /* DetailView.swift */; };
 		72AAB7D4211D86E7004922A9 /* LostedThing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAB7D3211D86E7004922A9 /* LostedThing.swift */; };
 		72AAB7D9211D9B33004922A9 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAB7D8211D9B33004922A9 /* SearchCell.swift */; };
 		72B6091D2101F7E200DA2CEE /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B6091C2101F7E200DA2CEE /* Common.swift */; };
@@ -204,7 +207,6 @@
 		7261580F20D283E200B836EA /* AboutUniversityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUniversityViewController.swift; sourceTree = "<group>"; };
 		7264146221DE170F00D6ECD7 /* GetSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSession.swift; sourceTree = "<group>"; };
 		726A364820A9A1D4003624D8 /* University_Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = University_Data.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		726A364920A9A1D4003624D8 /* University_app copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "University_app copy-Info.plist"; path = "/Users/chingiz/Documents/Adobe/Xcode/University_app/University_app copy-Info.plist"; sourceTree = "<absolute>"; };
 		7277CED22104CD0C0001F3ED /* ScheduleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleExtension.swift; sourceTree = "<group>"; };
 		7277CED42105972F0001F3ED /* FindedUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedUserInfo.swift; sourceTree = "<group>"; };
 		7277CED82105DAAF0001F3ED /* UserSeacrhHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSeacrhHeader.swift; sourceTree = "<group>"; };
@@ -246,6 +248,9 @@
 		729DA70C20CE2B3800B98750 /* SearchAndFiend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFiend.swift; sourceTree = "<group>"; };
 		729DA70E20CE34F300B98750 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		729E4E9D212143A60062190B /* UploadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhoto.swift; sourceTree = "<group>"; };
+		72A1D9FF21E7187700C6D4F1 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		72A1DA0121E7189E00C6D4F1 /* GetPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPayment.swift; sourceTree = "<group>"; };
+		72A1DA0321E71E0400C6D4F1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		72AAB7D3211D86E7004922A9 /* LostedThing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostedThing.swift; sourceTree = "<group>"; };
 		72AAB7D8211D9B33004922A9 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		72B6091B2101F7A000DA2CEE /* crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
@@ -378,7 +383,6 @@
 				722787A8209DA7D100908497 /* University_appTests */,
 				722787B3209DA7D100908497 /* University_appUITests */,
 				72278792209DA7D000908497 /* Products */,
-				726A364920A9A1D4003624D8 /* University_app copy-Info.plist */,
 				A75569D2A0FD0C45B1978AA0 /* Pods */,
 				D96419FD90CF93EBEA74E47E /* Frameworks */,
 			);
@@ -541,6 +545,7 @@
 				727F7CA321E4BB490034FE2A /* Payment */,
 				72CB5FD720A5A118001052CB /* Extension.swift */,
 				72C9566920A569C0004EF386 /* TabBarController.swift */,
+				72A1DA0321E71E0400C6D4F1 /* DetailView.swift */,
 				729B89E82147B475006FAB25 /* TeacherTabBar.swift */,
 				7200C7B120D219E200AA77D9 /* DataExtension.swift */,
 				727E2ACF209DC91E001AB9F1 /* MainPageController.swift */,
@@ -567,6 +572,8 @@
 			isa = PBXGroup;
 			children = (
 				727F7CA421E4BBB70034FE2A /* PaymentViewController.swift */,
+				72A1D9FF21E7187700C6D4F1 /* Payment.swift */,
+				72A1DA0121E7189E00C6D4F1 /* GetPayment.swift */,
 				727F7CA821E4C6900034FE2A /* PaymentCollectionViewCell.swift */,
 				727F7CA621E4C0900034FE2A /* PaymentView.swift */,
 			);
@@ -903,7 +910,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-University_app/Pods-University_app-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Neon/Neon.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -913,7 +920,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Neon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -950,6 +957,7 @@
 				72F28B312102FFCB0090F295 /* ScheduleHeader.swift in Sources */,
 				72926D43213E46A600138BED /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				72269E8B213F967A006C247C /* SendPushId.swift in Sources */,
+				72A1DA0421E71E0400C6D4F1 /* DetailView.swift in Sources */,
 				72CB5FD820A5A118001052CB /* Extension.swift in Sources */,
 				7242E5E820C7AF970046AF04 /* QuestionView.swift in Sources */,
 				72FB6C0D20A464E3003096BE /* ScoreController.swift in Sources */,
@@ -1003,6 +1011,7 @@
 				729DA70F20CE34F300B98750 /* NewsView.swift in Sources */,
 				72B6091D2101F7E200DA2CEE /* Common.swift in Sources */,
 				729E4E9E212143A60062190B /* UploadPhoto.swift in Sources */,
+				72A1DA0221E7189E00C6D4F1 /* GetPayment.swift in Sources */,
 				722045DD20BE62AD000583AE /* Expandable.swift in Sources */,
 				72926D40213E46A600138BED /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				727F7CA721E4C0900034FE2A /* PaymentView.swift in Sources */,
@@ -1025,6 +1034,7 @@
 				72EE408E20DCC8FA00FEFF38 /* MainParams.swift in Sources */,
 				7219708920D3DFA000A3F76D /* SearchApi.swift in Sources */,
 				7277CED52105972F0001F3ED /* FindedUserInfo.swift in Sources */,
+				72A1DA0021E7187700C6D4F1 /* Payment.swift in Sources */,
 				72EE408C20DCC84F00FEFF38 /* UserSearcher.swift in Sources */,
 				727E2ACE209DC337001AB9F1 /* MainPage.swift in Sources */,
 				72926D48213E46A600138BED /* IQUIView+Hierarchy.swift in Sources */,
@@ -1227,7 +1237,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D26TWZU8R5;
 				INFOPLIST_FILE = University_app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1254,7 +1264,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D26TWZU8R5;
 				INFOPLIST_FILE = University_app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1451,7 +1461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D26TWZU8R5;
 				INFOPLIST_FILE = University_app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

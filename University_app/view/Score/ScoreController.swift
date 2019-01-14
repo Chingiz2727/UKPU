@@ -30,12 +30,10 @@ class ScoreController: UITableViewController {
         tableView.dataSource = self
         tableView?.backgroundColor = UIColor.init(r: 248, g: 248, b: 248)
         get()
-        view.addSubview(send)
-    send.setAnchor(top: tableView.layoutMarginsGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.frame.width, height: 45)
+
         dropdown.anchorView = send
         dropdown.dataSource = semester
         DropDown.startListeningToKeyboard()
-            tableView?.contentInset = UIEdgeInsets(top: 45, left: 0, bottom: 0, right: 0)
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +65,13 @@ class ScoreController: UITableViewController {
 
         }
     }
+   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       return 45
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        view.addSubview(send)
+        return send
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if subject.count == 0 {
             let bgImage = UIImageView();
@@ -88,7 +93,7 @@ class ScoreController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         let sc = ScoreDetailController()
-        sc.url = "https://www.ukpu-systems.kz/pages/login/students/grade_mob.php/?course_id=\(subject[indexPath.row].subj_id!)&sem_id=\(semecter!)&student_id=\(APItoken.getapictoken()!)"
+        sc.url = "https://ukpu-systems.kz/pages/login/students/grade_mob.php/?course_id=\(subject[indexPath.row].subj_id!)&sem_id=\(semecter!)&student_id=\(APItoken.getapictoken()!)"
         print(sc.url)
         self.navigationController?.pushViewController(sc, animated: true)
     }

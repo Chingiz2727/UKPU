@@ -77,6 +77,7 @@ class MainPage: UITableViewCell {
         bannerImageView.clipsToBounds = true
         self.addSubview(photobutton)
         let image = UIImage(named: "photo")
+        bannerImageView.image = UIImage(named: "login")
         photobutton.setImage(image!, for: .normal)
          bannerMaskView.setAnchor(top: bannerImageView.topAnchor, left: bannerImageView.leftAnchor, bottom: bannerImageView.bottomAnchor, right: bannerImageView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         photobutton.setAnchor(top: nil, left: nil, bottom: bannerImageView.bottomAnchor, right: bannerImageView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 7, paddingRight: 7, width: 30, height: 30)
@@ -95,12 +96,13 @@ class MainPage: UITableViewCell {
     
     func returnimg() {
         UserApi.users { (userinfo) in
+            self.nameLabel.text = userinfo.name!
+            
             if userinfo.userimage != nil {
                 Alamofire.request("http://89.40.60.206\(userinfo.userimage!)").responseData { (response) in
                     self.avatarImageView.image = UIImage(data: response.data!)
                     self.bannerImageView.image = UIImage(data: response.data!)
                 }
-                self.nameLabel.text = userinfo.name!
             }
         
             }

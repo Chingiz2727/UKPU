@@ -70,6 +70,7 @@ class AboutUniversityVIew : UIView
         let attrs = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18)]
         let attributedString = NSMutableAttributedString(string: "Email:", attributes:attrs)
         let text = NSMutableAttributedString(string: "\nukpu_kaz@mail.ru")
+        
         attributedString.append(text)
         adress.font = UIFont.systemFont(ofSize: 15)
         adress.attributedText = attributedString

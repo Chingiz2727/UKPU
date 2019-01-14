@@ -12,6 +12,23 @@ class PaymentViewController: UIViewController,UICollectionViewDelegate,UICollect
     
     let cellid = "cellid"
     var PayView : PaymentView!
+    var range = [DatesAndPrice]()
+    var paidcount : Int?
+    var opls  : Int? {
+        didSet {
+            PayView.opl_text.text = "\(opls!)"
+        }
+    }
+    var ostt : Int? {
+        didSet {
+            PayView.ost_text.text = "\(ostt!)"
+        }
+    }
+    var obss : Int? {
+        didSet {
+            PayView.obs_text.text = "\(obss!)"
+        }
+    }
     var collectionview  : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero , collectionViewLayout: layout)
@@ -21,23 +38,39 @@ class PaymentViewController: UIViewController,UICollectionViewDelegate,UICollect
         return cv
     }()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return range.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! PaymentCollectionViewCell
-        cell.first_t.text = "ukulele"
-        cell.money.text = "100 000"
-        cell.img.image = UIImage.init(named: "News")
+        let item = range[indexPath.row]
+        cell.first_t.text = item.date!
+        cell.money.text = "\(item.price!)"
+        if indexPath.row <= paidcount! - 1 {
+            cell.img.image = UIImage.init(named: "icon_done")
+        }
+            
+        else {
+            cell.img.image = UIImage.init(named: "icon_not_done")
+        }
         return cell
     }
-    
+    func reloaddata() {
+        GetPayment.get { (range) in
+            self.range = (range?.datesAndPrices!)!
+            self.collectionview.reloadData()
+            self.obss = range?.totalPrice
+            self.ostt = range?.remainedPrice
+            self.opls = range?.paidPrice
+            self.paidcount = (range?.paidPrice)!/((range?.totalPrice)!/((range?.datesAndPrices?.count)!))
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         addview()
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.isTranslucent = false
-        
+        reloaddata()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -11,7 +11,7 @@ class MainPageController: UITableViewController {
     var menul = [MenuList(title: "Наш Университет", image: "bank"),
                  MenuList(title: "Поиск Друзей", image: "users-1"),
                  MenuList(title: "Бюро Находок", image: "find"),
-                 MenuList(title: "Информация о платежах", image: "find"),
+                 MenuList(title: "Информация о платежах", image: "icon_coins"),
                  MenuList(title: "Часто задаваемы вопросы", image: "info"),
                  MenuList(title: "Выйти", image: "logout")]
     let bandCellId = "bandCellId"
@@ -91,7 +91,7 @@ class MainPageController: UITableViewController {
         
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 40
     }
 
     var picker_image : UIImage? {

@@ -16,6 +16,8 @@ class TeacherViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var MainView : UserSearchHeader!
     var url : String!
     var name = [String]()
+    var detail = ["Аты: ","Тегі: ","E-mail: ","Номер: ","ID: "]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         name.remove(at: 5)
@@ -40,9 +42,8 @@ class TeacherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return name.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: bandCellId, for: indexPath) as! MainMenuView
-        cell.cabinet.text = name[indexPath.row]
-        cell.placeimg.image = nil
+        let cell = tableView.dequeueReusableCell(withIdentifier: bandCellId, for: indexPath) as! DetailView
+        cell.cabinet.text = "\(detail[indexPath.row]) \(name[indexPath.row])"
         return cell
     }
 

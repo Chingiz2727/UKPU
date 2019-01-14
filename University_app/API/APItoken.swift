@@ -10,6 +10,8 @@ import UIKit
 
 @available(iOS 10.0, *)
 class APItoken: UINavigationController {
+    let window = UIApplication.shared.keyWindow
+
     override func viewDidLoad() {
         super.viewDidLoad()
         restartapp()
@@ -21,15 +23,16 @@ class APItoken: UINavigationController {
         Login.login(email: APItoken.getapictoken()!, password: APItoken.getPassword()!) { (type) in
             print(type)
             if type == "2"{
-                appdelegate.window?.rootViewController =  TabBarController()
+                self.window?.rootViewController =  TabBarController()
             }
             else {
-                appdelegate.window?.rootViewController =  TeacherTabBar()
+                
+                self.window?.rootViewController =  TeacherTabBar()
             }
         }
         }
         else {
-            appdelegate.window?.rootViewController = LoginController()
+            self.window?.rootViewController = LoginController()
         }
     }
     class func saveapitoken(token:String,password:String)
